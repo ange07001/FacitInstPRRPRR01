@@ -252,7 +252,6 @@ sorted_keys = sorted(dict.keys())
 
 # sortera efter värden
 sorted_values = sorted(dict.values())
-# konertera dict till lista med tuple i [(key, value), (key, value), ...] 
 
 # sortera en dict som är koverterad till en lista
 dict_as_list = list(dict.items())
@@ -264,7 +263,7 @@ dict_as_list.sort(key=lambda item: item[1])
 
 # 28.8 *göra om till lista
 dict_as_list = list(dict.items())
-# outputen blir en lista med tuples t.ex. [("a", 1), ("b", 2)]
+# konertera dict till lista med tuple i [(key, value), (key, value), ...] 
 
 # 29. Lägger man ihop två listor?
 lista1 = [1, 2]
