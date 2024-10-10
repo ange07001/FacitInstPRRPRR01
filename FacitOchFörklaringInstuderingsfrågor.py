@@ -249,7 +249,7 @@ print(dict["a"])
 # 28.7 *Sorterar man den
 # Dictionaries är osorterade, men man kan sortera nycklarna
 sorted_keys = sorted(dict.keys()) # ger en lista med nycklarna sorterade [a, b, c]
-sorted_dict_by_keys = sorted(dict.items(), key=lambda item: item[0]) # ger en lista med tuple sorterade efter nycklarna [("a", 1), ("b", 2), ("c", 3)]
+sorted_dict_by_keys = sorted(dict.items(), key=lambda item: item[0]) # ger en lista med tuple sorterade efter nycklarna [("a", 2), ("b", 3), ("c", 1)]
 
 # sortera efter värden
 sorted_values = sorted(dict.values()) # ger en lista med värdena sorterade [1, 2, 3]
