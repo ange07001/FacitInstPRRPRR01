@@ -257,10 +257,10 @@ sorted_dict_by_values = sorted(dict.items(), key=lambda item: item[1]) # ger en 
 
 # sortera en dict som är koverterad till en lista
 dict_as_list = list(dict.items())
-dict_as_list.sort(key=lambda item: item[0])
+dict_as_list.sort(key=lambda item: item[0]) # samma som sorted_dict_by_keys
 # blir sorterad efter nycklarna
 
-dict_as_list.sort(key=lambda item: item[1])
+dict_as_list.sort(key=lambda item: item[1]) # samma som sorted_dict_by_values
 # blir sorterad efter värdena
 
 # 28.8 *göra om till lista
