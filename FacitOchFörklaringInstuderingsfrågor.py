@@ -293,8 +293,10 @@ min_funktion()
 import math
 import random as rnd
 from math import sqrt
+from random import *
 # as används för att ge modulen ett alias
 # from används för att importera en specifik funktion från en modul
+# * används för att importera alla funktioner från en modul
 
 # 35. Hur fungerar default-värde
 def funktion_med_default_varde(param=10):
