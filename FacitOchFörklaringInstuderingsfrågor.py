@@ -248,10 +248,12 @@ print(dict["a"])
 
 # 28.7 *Sorterar man den
 # Dictionaries är osorterade, men man kan sortera nycklarna
-sorted_keys = sorted(dict.keys())
+sorted_keys = sorted(dict.keys()) # ger en lista med nycklarna sorterade [a, b, c]
+sorted_dict_by_keys = sorted(dict.items(), key=lambda item: item[0]) # ger en lista med tuple sorterade efter nycklarna [("a", 1), ("b", 2), ("c", 3)]
 
 # sortera efter värden
-sorted_values = sorted(dict.values())
+sorted_values = sorted(dict.values()) # ger en lista med värdena sorterade [1, 2, 3]
+sorted_dict_by_values = sorted(dict.items(), key=lambda item: item[1]) # ger en lista med tuple sorterade efter värdena [("b", 1), ("c", 2), ("a", 3)]
 
 # sortera en dict som är koverterad till en lista
 dict_as_list = list(dict.items())
