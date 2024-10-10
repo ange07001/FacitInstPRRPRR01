@@ -217,6 +217,8 @@ lista3 = lista1 + lista2
 # 26. Hur kopierar men en Lista? (finns flera sätt)
 lista_kopia = lista_med_varden.copy()
 lista_kopia2 = lista_med_varden[:]
+lista_kopia3 = [x for x in lista_med_varden]
+# går också att använda deepcopy från copy-modulen
 # i exemplen ovan kopieras listan med hjälp av copy() och slicing och är då helt separata från originalet
 lista_kopia = lista_med_varden
 # i exemplet ovan pekar båda variablerna på samma lista och om den ena ändras ändras den andra också
@@ -224,6 +226,9 @@ lista_kopia = lista_med_varden
 # 27. Hur fungerar List comprehensions?
 # List comprehensions är ett sätt att skapa listor på ett kompakt sätt
 squares = [x**2 for x in range(10)]
+
+# man kan också använda if-satser
+even_squares = [x**2 for x in range(10) if x % 2 == 0]
 
 # 28. Hur gör man följande med dictionaries
 # 28.1 Skapa med några världen
@@ -301,3 +306,101 @@ from random import *
 # 35. Hur fungerar default-värde
 def funktion_med_default_varde(param=10):
     print(param)
+
+
+# ÖVRIGT SOM INTE FINNS I INSTUDERINGSFRÅGORNA
+
+# 1. *args i listor
+# *args används för att skicka in ett odefinierat antal argument till en funktion
+# dessa argument sparas i en tuple
+def funktion_med_args(*args):
+    for arg in args:
+        print(arg)
+
+# 2. Man kan göra en variabel global med global
+# detta gör att variabeln kan användas utanför en funktion och ändras inuti funktionen
+global_var = 10
+def funktion():
+    global global_var
+    global_var = 20
+
+print(global_var) # 10
+funktion() # ändrar global_var till 20
+print(global_var) # 20
+
+# 3. Man kan importa sin egna moduler med import
+# skapa en fil som innehåller funktioner och variabler
+# importera filen med import filnamn (utan .py)
+# använd funktioner och variabler från filen med filnamn.funktion()
+
+# 4. Man kan använda enumerate för att få index och värde i en loop
+lista = ["a", "b", "c"]
+for index, value in enumerate(lista):
+    print(index, value, end=", ") # ger: 0 a, 1 b, 2 c,
+
+# 5. Några bra funktioner för listor:
+
+# insert() lägger till ett värde på en specifik plats (index, värde)
+lista.insert(0, "a") # lägger till "a" på index 0
+
+#sort() sorterar listan i stigande ordning
+lista.sort() # ger ["a", "b", "c"]
+
+# reverse() vänder på listan
+lista.reverse() # ger ["c", "b", "a"]
+
+# count() räknar antalet förekomster av ett värde
+lista.count("a") # ger 1
+
+# index() ger indexet för ett värde
+lista.index("a") # ger 0
+
+
+# 6. Nested listor och dictionaries
+# Nested listor och dictionaries är listor och dictionaries som innehåller andra listor och dictionaries
+# exempel: dict = {"a": [1, 2, 3], "b": {"c": 1, "d": 2}}, list = [[1, 2, 3], [4, 5, 6]]
+# för att komma åt värden i nested listor och dictionaries skriver man flera []
+# exempel:
+nested_dict = {"a": {"b": 1}}
+print(nested_dict["a"]["b"]) # ger 1
+nested_list = [[1, 2, 3], [4, 5, 6]]
+print(nested_list[0][1]) # ger 2
+# första världet är indexet för listan och andra är indexet för värdet i listan
+
+# för att loopa genom nested listor och dictionaries använder man nested loopar
+for lista in nested_list: # loopar genom varje lista i nested_list
+    for value in lista: # loopar genom varje värde i listan
+        print(value)
+
+# 7. För att ändra vad som händer i sluet av en print används end
+print("Hej", end=" ") # ger "Hej "
+# standardvärdet för end är "\n" vilket ger en ny rad efter varje print
+
+# Det finns flera sätt att markera en sträng i Python, exempelvis med enkla ' eller dubbla " citattecken
+# Om det finns citat i strängen bör man använda enkla citattecken runt strängen
+print('Hej "på" dig') # ger Hej "på" dig
+
+# Om det finns apostrofer i strängen
+print("Hej 'på' dig") # ger Hej 'på' dig
+
+# Om det finns både citat och apostrofer i strängen
+print("Hej 'på' dig \"och\" mig") # ger Hej 'på' dig "och" mig eftersom \ ensar citatet
+
+# Om den är flera rader
+print("""Hej
+"på"
+'dig'""") # ger Hej "på" 'dig'
+
+# 8. För att justera text i en print används rjust(), ljust() och center()
+print("Hej".rjust(10)) # ger "       Hej"
+print("Hej".ljust(10)) # ger "Hej       "
+print("Hej".center(10)) # ger "   Hej    "
+
+# Man kan också fylla ut med ett annat tecken än mellanslag
+print("Hej".rjust(10, "*")) # ger "*******Hej"
+
+# Man kan också använda format för att justera text
+print("{:>10}".format("Hej")) # ger "       Hej"
+
+# 9. För att byta ut en del av en sträng används replace()
+print("Hej på dig".replace("på", "med")) # ger "Hej med dig"
