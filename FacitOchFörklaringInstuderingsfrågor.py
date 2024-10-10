@@ -301,7 +301,7 @@ from math import sqrt
 from random import *
 # as används för att ge modulen ett alias
 # from används för att importera en specifik funktion från en modul
-# * används för att importera alla funktioner från en modul
+# * används för att importera alla funktioner från en modul och går då att använda utan att skriva modulens namn men det rekommenderas inte eftersom det kan leda till namnkonflikter
 
 # 35. Hur fungerar default-värde
 def funktion_med_default_varde(param=10):
